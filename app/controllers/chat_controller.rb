@@ -11,11 +11,10 @@ class ChatController < ApplicationController
       ChatRoomUser.create(chat_room: chat_room, user_id: current_user.id)
       ChatRoomUser.create(chat_room: chat_room, user_id: params[:user_id])
     end
-    # チャットルームへ遷移させる
+    # チャットルームへ遷移
     redirect_to action: :show, id: chat_room.id
   end
 
-  # showアクションを追加する
   def show
     # チャット相手の情報を取得する
     chat_room = ChatRoom.find_by(id: params[:id])
